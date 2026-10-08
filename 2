@@ -1,0 +1,162 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Layout Experiment',
+      home: const LayoutDemo(),
+    );
+  }
+}
+
+class LayoutDemo extends StatelessWidget {
+  const LayoutDemo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Row, Column & Stack'),
+        backgroundColor: Colors.blue,
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+
+        child: Column(
+          children: [
+            // Column Example
+            const Text(
+              'Column Layout',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            Container(
+              padding: const EdgeInsets.all(10),
+              color: Colors.blue.shade100,
+
+              child: const Column(
+                children: [
+                  Text('Item 1'),
+                  Text('Item 2'),
+                  Text('Item 3'),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 25),
+
+            // Row Example
+            const Text(
+              'Row Layout',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  width: 80,
+                  height: 60,
+                  color: Colors.red,
+                  child: const Center(
+                    child: Text(
+                      'One',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+
+                Container(
+                  width: 80,
+                  height: 60,
+                  color: Colors.green,
+                  child: const Center(
+                    child: Text(
+                      'Two',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+
+                Container(
+                  width: 80,
+                  height: 60,
+                  color: Colors.orange,
+                  child: const Center(
+                    child: Text(
+                      'Three',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 25),
+
+            // Stack Example
+            const Text(
+              'Stack Layout',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            SizedBox(
+              width: 250,
+              height: 150,
+
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 250,
+                    height: 150,
+                    color: Colors.purple,
+                  ),
+
+                  Container(
+                    width: 180,
+                    height: 100,
+                    color: Colors.white,
+                  ),
+
+                  const Text(
+                    'Stack Widget',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
